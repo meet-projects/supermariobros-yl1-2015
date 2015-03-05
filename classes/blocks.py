@@ -1,13 +1,13 @@
 import turtle
 class blocks(turtle):
-	def __init__(self,canvas,dx,dy,x,y,height,width):
+	def __init__(self,canvas,dx,dy,x,y,height,width,shape):
 		RawTurtle.__init__(self,canvas)
 		self.penup()
 		self.goto(x,y)
 		self.size = size
 		self.dx = dx
 		self.dy = dy
-		self.shape("squer"+str(size)
+		self.shape("square"+str(size))
 
 	def getsize(self):
 	    return self.size

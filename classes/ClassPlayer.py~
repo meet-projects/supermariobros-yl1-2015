@@ -1,7 +1,7 @@
 import.turtle
 
 class player():
-	def __init__(self,x,y,height,width,power,dx)
+	def __init__(self,x,y,height,width,power,dx,shape)
 		self.penup()
 		self.goto(x,y)
 		self.height=height
@@ -9,18 +9,27 @@ class player():
 		self.power=power
 		self.dx=dx
 		self.dy=0
+		self.shape="rectangle"
+
+
 	def getHeight(self):
 		return self.height
+
 	def getwidth(self):
 		return self.width
+
 	def getpower (self): 
 		return self.power
+
 	def getDX (self):
 		return self.dx
+
 	def getDY (self):
 		return self.dy
+
 	def setDX (self,dx):
 		self.dx=dx
+
 	def setDY (self,dy):
 		self.dy=dy
 
@@ -33,11 +42,12 @@ class player():
 		if self.dy<0
 			self.dy=0
 		self.dy=-self.dy
+
 	def getRadius(self):
         return 4
 
 
-
+turtle.mainloop()
 
         
 
