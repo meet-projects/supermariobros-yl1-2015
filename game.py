@@ -4,6 +4,7 @@ import tkinter.messagebox
 import tkinter
 import random
 import math
+import timeit
 
 #These Four variables are the borders of the game world
 screenMinX = -500
@@ -124,6 +125,9 @@ def main():
     screen.register_shape("rock1",((-10,-5),(-12,0),(-8,8),(0,13),(8,6),(14,0),(12,0),(8,-6),(0,-7)))
     screen.register_shape("ship",((-10,-10),(0,-5),(10,-10),(0,10)))
     screen.register_shape("bullet",((-2,-4),(-2,4),(2,4),(2,-4)))
+
+
+    t.write(1000000)
     frame = tkinter.Frame(root)
     frame.pack(side = tkinter.RIGHT,fill=tkinter.BOTH)
     t.ht()

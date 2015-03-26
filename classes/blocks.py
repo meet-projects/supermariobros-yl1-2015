@@ -1,5 +1,5 @@
 import turtle
-class blocks(turtle):
+class Blocks(turtle):
 	def __init__(self,canvas,dx,dy,x,y,height,width,shape):
 		RawTurtle.__init__(self,canvas)
 		self.penup()

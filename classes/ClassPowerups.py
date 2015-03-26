@@ -1,6 +1,6 @@
 import turtle
 
-class powerups(turtle):
+class Powerups(turtle):
 	def __init__(self,canvas,x,y,dx,dy,height,width,shape):
 		RawTurtle.__init__(self,canvas)
 		self.penup()
@@ -9,7 +9,7 @@ class powerups(turtle):
 		self.width = width
 		self.dx = dx
 		self.dy = dy
-		self.shape="circule"
+		self.shape="circle"
 		
 
 	def getheight(self):
