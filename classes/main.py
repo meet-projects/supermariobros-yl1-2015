@@ -34,6 +34,7 @@ def main():
     t = RawTurtle(cv)
     screen = t.getscreen()
     screen.setworldcoordinates(screenMinX,screenMinY,screenMaxX,screenMaxY)
+    screen.register_shape(".gif")
 
     frame = tkinter.Frame(root)
     frame.pack(side = tkinter.RIGHT,fill=tkinter.BOTH)
@@ -51,8 +52,22 @@ def main():
     # here we are using the class we defined above to create the spaceShip
     plr = Player(cv,0,0,0,0,0,0,0)
     
-    # This is preparing a list that we will store all the astroids in it
+    # This is preparing a list that we will store all the enemies
     enemies = []
+
+    for k in range(100):
+        # preparing random variables 
+        dx = random.random() * 10 - 5 #random speed in x (change in x)
+        x = random.random() * (screenMaxX - screenMinX) + screenMinX # random starting x location
+
+	enemies = Enemy (cv,dx,x)
+        enemies.append(enemy)
+       
+    for enemy in enemies:
+            if (intersect(plr,enemy)):
+                print("Game Over")
+                quitHandler()
+            enemy.move()
     # here we a function that we will call it every 5 millisecond (THIS IS WHAT CODE KEEPS RUNNING WHILE THE GAME IS OPEN)
     # this we call it GAME LOOP
     # GAME LOOP (BEGIN)
