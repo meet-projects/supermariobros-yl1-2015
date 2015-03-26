@@ -1,4 +1,3 @@
-#This is a demo project for meet Yearlong 2014-15 Y1
 from turtle import *
 import tkinter.messagebox
 import tkinter
@@ -6,6 +5,7 @@ import random
 import math
 import timeit
 from ClassPlayer import Player
+from ClassEnemy import Enemy
 
 #These Four variables are the borders of the game world
 screenMinX = -500
@@ -26,7 +26,7 @@ def intersect(Player_var,Enemy_var):
 def main():
     # These 4 lines just to prepare the window of the game, no need to change them
     root = tkinter.Tk()
-    root.title("Asteroids!")
+    root.title("Enemy")
     cv = ScrolledCanvas(root,600,600,600,600)
     cv.pack(side = tkinter.LEFT)
 
@@ -34,7 +34,6 @@ def main():
     t = RawTurtle(cv)
     screen = t.getscreen()
     screen.setworldcoordinates(screenMinX,screenMinY,screenMaxX,screenMaxY)
-    screen.register_shape(".gif")
 
     frame = tkinter.Frame(root)
     frame.pack(side = tkinter.RIGHT,fill=tkinter.BOTH)
@@ -59,11 +58,10 @@ def main():
         # preparing random variables 
         dx = random.random() * 10 - 5 #random speed in x (change in x)
         x = random.random() * (screenMaxX - screenMinX) + screenMinX # random starting x location
-
-	enemies = Enemy (cv,dx,x)
+        enemy=Enemy(cv,dx,x)
         enemies.append(enemy)
        
-    for enemy in enemies:
+        for enemy in enemies:
             if (intersect(plr,enemy)):
                 print("Game Over")
                 quitHandler()

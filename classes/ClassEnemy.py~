@@ -1,14 +1,11 @@
-turtle import *
+from turtle import *
 class Enemy(Turtle):
-	def __init__ (self, canvas, x, y, dx, dy, height, width,shape):
+	def __init__ (self, canvas, x, dx):
 		RawTurtle.__init__(self, canvas)
 		self.penup()
-		self.goto(x,y)
+		self.goto(x,7)
 		self.dx = dx
-		self.dy= dy
-		self.height = height
-		self.width = width	
-		self.shape("triangle")
+		self.y=	7
 
 
 	def getsize(self):
@@ -39,4 +36,4 @@ class Enemy(Turtle):
 		y += self.dy
 		self.goto(x,y)
 
-turtle.mainloop()
+
