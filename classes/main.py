@@ -62,7 +62,7 @@ def main():
         plr.move()
         # go (loop) though each astroid in the astroids list and tell it to move as well check if it is toucing the ship
         # Set the timer to go off again in 5 milliseconds
-        screen.ontimer(play, 5)
+        screen.ontimer(play,5)
     # GAME LOOP (ENDS)
 
     # Set the timer to go off the first time in 5 milliseconds
@@ -72,7 +72,7 @@ def main():
     # this means call the defined function in class spaceShip turrnRight for the ship everytime the right arrow key is pushed in the keyboard
     screen.onkeypress(plr.go_right,"Right")
     # this means call the defined function in class spaceShip turrnLeft for the ship everytime the up arrow key is pushed in the keyboard
-    #screen.onkeypress(ship.fireEngine,"Up")
+    screen.onkeypress(plr.jump,"Up")
     
     screen.listen()
     tkinter.mainloop()
