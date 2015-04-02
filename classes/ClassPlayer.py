@@ -12,10 +12,16 @@ class Player(Turtle):
 		self.dy= 0
 		self.shape("square")
 		self.direction = 0
+		self.shape("smallermario.gif")
+		
+		
 
 
 	def getHeight(self):
 		return self.height
+
+	def getRadius(self):
+		return 10	
 
 	def getwidth(self):
 		return self.width
@@ -36,12 +42,20 @@ class Player(Turtle):
 		self.dy=dy
 
 	def go_left(self):
-		self.dx = -5
-		self.direction = 1
+		if self.dx != 1 or self.dy != 0:
+			self.dx = -5
+			self.direction = 1
+		if self.dx != 1 and self.dy != 0:
+			self.dx = -1
+			self.direction = 1
 
 	def go_right(self):
-		self.dx = 5
-		self.direction = 2
+		if self.dx != -1 or self.dy != 0:
+			self.dx = 5
+			self.direction = 2
+		if self.dx != -1 and self.dy != 0:
+			self.dx = 1
+			self.direction = 2
 	
 	def jump(self):
 		if self.ycor() == 0:
@@ -60,6 +74,7 @@ class Player(Turtle):
 		if (self.dy == 0 and self.direction == 0):
 			self.dx = 0
 		self.direction = 0
+
 
 	def getRadius(self):
 		return 4

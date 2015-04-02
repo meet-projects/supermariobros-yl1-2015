@@ -6,12 +6,14 @@ import math
 import timeit
 from ClassPlayer import Player
 from ClassEnemy import Enemy
+from Classblock import Blocks
 
 #These Four variables are the borders of the game world
 screenMinX = -500
 screenMinY = -500
 screenMaxX = 500
 screenMaxY = 500
+
 
 
 def intersect(Player_var,Enemy_var):
@@ -34,6 +36,11 @@ def main():
     t = RawTurtle(cv)
     screen = t.getscreen()
     screen.setworldcoordinates(screenMinX,screenMinY,screenMaxX,screenMaxY)
+    screen.register_shape("ssmallergoomba2.gif")
+    screen.register_shape("images.gif")
+    screen.register_shape("Brick_Block.gif")
+    screen.register_shape("smallermario.gif")
+
 
     frame = tkinter.Frame(root)
     frame.pack(side = tkinter.RIGHT,fill=tkinter.BOTH)
@@ -54,18 +61,24 @@ def main():
     # This is preparing a list that we will store all the enemies
     enemies = []
 
-    for k in range(100):
+    for k in range(4):
         # preparing random variables 
-        dx = random.random() * 10 - 5 #random speed in x (change in x)
+        dx = random.random() *  4 - 2 #random speed in x (change in x)
         x = random.random() * (screenMaxX - screenMinX) + screenMinX # random starting x location
-        enemy=Enemy(cv,dx,x)
+        enemy=Enemy(cv,x, dx)
         enemies.append(enemy)
+
+
+    blocks = []
+    for k in range(15):
+        # preparing random variables 
+        #dx = random.random() *  4 - 2 #random speed in x (change in x)
+        #x = random.random() * (screenMaxX - screenMinX) + screenMinX # random starting x location
+        x= k*40 
+        block=Blocks(cv,0,0,x,screenMaxY,40,40)
+        blocks.append(block)    
        
-        for enemy in enemies:
-            if (intersect(plr,enemy)):
-                print("Game Over")
-                quitHandler()
-            enemy.move()
+        
     # here we a function that we will call it every 5 millisecond (THIS IS WHAT CODE KEEPS RUNNING WHILE THE GAME IS OPEN)
     # this we call it GAME LOOP
     # GAME LOOP (BEGIN)
@@ -73,6 +86,15 @@ def main():
         # Tell all the elements of the game to move
         # Tell the ship to move
         plr.move()
+        for enemy in enemies:
+            if (intersect(plr,enemy)):
+                if plr.ycor()> enemy.ycor() :
+                    print ("enemy dies")
+                    enemy.ht()
+                    enemies.remove(enemy)
+                else: 
+                    print("Game over")
+            enemy.move()
         # go (loop) though each astroid in the astroids list and tell it to move as well check if it is toucing the ship
         # Set the timer to go off again in 5 milliseconds
         screen.ontimer(play,5)

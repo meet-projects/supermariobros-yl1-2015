@@ -18,6 +18,9 @@ class Powerups(turtle):
 	def getwidth(self):
 		return self.width
 
+	def getRadius(self):
+		return 10
+
 	def getDX(self):
 		return self.DX
 
@@ -35,4 +38,10 @@ class Powerups(turtle):
 		y = self.ycor()
 		x = (self.dx + x - screenMinX) % (screenMaxX - screenMinX) + screenMinX 
 		y = (self.dy + y - screenMinY) % (screenMaxY - screenMinY) + screenMinY
-		self.goto(x,y)
+		self.goto(x+dx, y+dy)
+
+	def go_left(self):
+		self.dx = -5
+
+	def go_right(self):
+		self.dx = 5
