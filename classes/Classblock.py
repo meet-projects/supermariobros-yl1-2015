@@ -6,7 +6,7 @@ class Blocks(Turtle):
 		self.goto(x,y)
 		self.dx = dx
 		self.dy = dy
-		self.shape("square")
+		self.shape("Smallbrick.gif")
 
 	def getDX(self):
 	    return self.dx
@@ -19,6 +19,6 @@ class Blocks(Turtle):
 
 	def setDY(self,dy):
 	    self.dy = dy
-	    
-
-
+	
+	def move(self):
+		self.goto(self.xcor()+dx,self.ycor()+dy)

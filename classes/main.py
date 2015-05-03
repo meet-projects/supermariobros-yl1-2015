@@ -38,7 +38,7 @@ def main():
     screen.setworldcoordinates(screenMinX,screenMinY,screenMaxX,screenMaxY)
     screen.register_shape("ssmallergoomba2.gif")
     screen.register_shape("images.gif")
-    screen.register_shape("Brick_Block.gif")
+    screen.register_shape("Smallbrick.gif")
     screen.register_shape("smallermario.gif")
 
 
@@ -61,7 +61,7 @@ def main():
     # This is preparing a list that we will store all the enemies
     enemies = []
 
-    for k in range(4):
+    for k in range(10):
         # preparing random variables 
         dx = random.random() *  4 - 2 #random speed in x (change in x)
         x = random.random() * (screenMaxX - screenMinX) + screenMinX # random starting x location
@@ -70,12 +70,13 @@ def main():
 
 
     blocks = []
-    for k in range(15):
+    for k in range(-28,25):
         # preparing random variables 
         #dx = random.random() *  4 - 2 #random speed in x (change in x)
         #x = random.random() * (screenMaxX - screenMinX) + screenMinX # random starting x location
-        x= k*40 
-        block=Blocks(cv,0,0,x,screenMaxY,40,40)
+        x= k*-65
+        y= -70
+        block=Blocks(cv,20,0,x,y,40,40)
         blocks.append(block)    
        
         

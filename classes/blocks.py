@@ -7,7 +7,7 @@ class Blocks(turtle):
 		self.size = size
 		self.dx = dx
 		self.dy = dy
-		self.shape("square"+str(size))
+		self.shape("Brick_Block.gif")
 
 	def getsize(self):
 	    return self.size
@@ -23,5 +23,4 @@ class Blocks(turtle):
 
 	def setDY(self,dy):
 	    self.dy = dy
-
 
